@@ -1,41 +1,57 @@
-import React, {Component} from 'react';
-import { StyleSheet, Text, View,Image,ImageBackground } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 
+
+
+
+export default function TicTac(){
+
+  
+const position = (row, col) => {
+  let positiongrid = [[" "," "," "],[" "," "," "],[" "," "," "]]
+  return <gridcat>positiongrid</gridcat>
+}
+  return( <View style={styles.container}>
+   
+    <Text style={styles.title}>KittyCat</Text>
+    <View style={styles.gridcat}>
+    <View style={{flexDirection:'row'}}><Text style={styles.box}></Text><Text style={styles.box}></Text><Text style={styles.box}></Text></View>
+    <View style={{flexDirection:'row'}}><Text style={styles.box}></Text><Text style={styles.box}></Text><Text style={styles.box}></Text></View>
+    <View style={{flexDirection:'row'}}><Text style={styles.box}></Text><Text style={styles.box}></Text><Text style={styles.box}></Text></View>
+    </View>
+    </View>
+    );
+   
+};
 const styles=StyleSheet.create({
   container: {
    flex:1,
    justifyContent:'center',
    alignItems:'center',
-   backgroundColor: 'pink'
+   backgroundColor: '#FFE66D'
   },
-  backgrounkitty:{
-    width: '100%', 
-    height: '100%'
-  },
-  one:{
+  title:{
+    fontSize:40,
     fontWeight:'bold',
-    fontSize:50,
-    color:'blue'
-     },
-  two:{
-    color:'red'
-  }
-});
+    color:'#E86262', 
+    marginBottom:50
 
- class TicTac extends Component{
-  render(){
-    return(
-   
-      <View style={styles.container}>
-   <ImageBackground source={require('./assets/tempsnip.png')} style={styles.backgrounkitty}>
-       <Image source={require('./assets/kittyred.png')} />
-       {/* <Image source={require('./assets/kittypink.png')} /> */}
-     
-               <Text style={styles.one}>Hola Naty!!!</Text>
-        <Text style={styles.two}>Vas Avanzando...</Text>
-        </ImageBackground>
-      </View>
-     
-    )
+
+  },
+  gridcat:{
+    backgroundColor:'#F7FFF7',
+    color:'#1A535C',
+    width:300,
+    height:300,
+    borderColor:'#E89D9D',
+    borderWidth:2
+  },
+  box:{
+    borderColor:'#E89D9D',
+    borderWidth:2,
+    width:100,
+    height:100
   }
-}export default TicTac
+
+
+})

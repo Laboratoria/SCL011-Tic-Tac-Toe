@@ -272,7 +272,7 @@ expo publish
 
 ### UI
 
-* [ ] Muestra grilla (grid) de 3x3
+* [x] Muestra grilla (grid) de 3x3
 * [ ] Muestra jugador al que le toca su turno
 * [ ] Permite marcar cajita vacía
 * [ ] Cambia el turno después de marcar cajita
