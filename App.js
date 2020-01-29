@@ -1,57 +1,27 @@
-import React from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, ImageBackground} from 'react-native'
+import Header from './src/container/header'
+import Body from './src/container/body'
 
+class App extends Component {
 
-
-
-export default function TicTac(){
-
-  
-const position = (row, col) => {
-  let positiongrid = [[" "," "," "],[" "," "," "],[" "," "," "]]
-  return <gridcat>positiongrid</gridcat>
+render(){
+  return (
+    <ImageBackground source={require('./assets/fondo.png')} style={styles.container}>
+     <Header/>
+     <Body/>
+    </ImageBackground>
+  )
 }
-  return( <View style={styles.container}>
-   
-    <Text style={styles.title}>KittyCat</Text>
-    <View style={styles.gridcat}>
-    <View style={{flexDirection:'row'}}><Text style={styles.box}></Text><Text style={styles.box}></Text><Text style={styles.box}></Text></View>
-    <View style={{flexDirection:'row'}}><Text style={styles.box}></Text><Text style={styles.box}></Text><Text style={styles.box}></Text></View>
-    <View style={{flexDirection:'row'}}><Text style={styles.box}></Text><Text style={styles.box}></Text><Text style={styles.box}></Text></View>
-    </View>
-    </View>
-    );
-   
+  
 };
-const styles=StyleSheet.create({
+
+const styles = StyleSheet.create({
   container: {
-   flex:1,
-   justifyContent:'center',
-   alignItems:'center',
-   backgroundColor: '#FFE66D'
-  },
-  title:{
-    fontSize:40,
-    fontWeight:'bold',
-    color:'#E86262', 
-    marginBottom:50
-
-
-  },
-  gridcat:{
-    backgroundColor:'#F7FFF7',
-    color:'#1A535C',
-    width:300,
-    height:300,
-    borderColor:'#E89D9D',
-    borderWidth:2
-  },
-  box:{
-    borderColor:'#E89D9D',
-    borderWidth:2,
-    width:100,
-    height:100
+    flex: 1,
+    backgroundColor: '#FFE66D',
+    flexDirection:'column'
   }
-
-
+  
 })
+export default App
