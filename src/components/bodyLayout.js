@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Image,
   Text,
-  TouchableHighlight
+  TouchableHighlight,
+  Alert
 } from "react-native";
 
 const styles = StyleSheet.create({
@@ -32,7 +33,6 @@ const styles = StyleSheet.create({
     borderColor: "#E89D9D"
   },
   image: {
-  
     marginLeft: 12,
     marginTop: 12
   },
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: "#343399",
     fontWeight: "bold",
-    marginTop:20
+    marginTop: 20
   },
   kitty: {
     width: 40,
@@ -127,15 +127,6 @@ function Body() {
     }
   };
 
-  const pressSquare = (row, col) => {
-    if (grid[row][col] !== 0) {
-      return;
-    }
-    const newGrid = grid.slice();
-    newGrid[row][col] = currentUser;
-    setGrid(newGrid);
-    setCurrentUser(currentUser * -1);
-  };
   const reset = () => {
     setGrid([
       [0, 0, 0],
@@ -145,6 +136,67 @@ function Body() {
     setCurrentUser(1);
   };
 
+  /*  const [cat1, setCat1]=useState(0);
+ const [cat2, setCat2]=useState(0);
+ */
+  const pressSquare = (row, col) => {
+    if (grid[row][col] !== 0) {
+      return;
+    }
+    const newGrid = grid.slice();
+    newGrid[row][col] = currentUser;
+    setGrid(newGrid);
+    setCurrentUser(currentUser * -1);
+    //chequeando ganador
+    const catwinner = validedlines();
+    if (catwinner == 1) {
+      Alert.alert("Gana Kitty Pink");
+    } else if (catwinner == -1) {
+      Alert.alert("Gana Kitty Red");
+    }
+    
+
+  };
+  const validedlines = () => {
+    const lenghtarr = 3;
+    const positionGrid = grid;
+    let sumArr;
+
+    //chequear filas
+    for (let i = 0; i < lenghtarr; i++) {
+      sumArr = positionGrid[i][0] + positionGrid[i][1] + positionGrid[i][2];
+      if (sumArr == 3) {
+        return 1;
+      } else if (sumArr == -3) {
+        return -1;
+      }
+    }
+    //chequear colunas
+    for (let i = 0; i < lenghtarr; i++) {
+      sumArr = positionGrid[0][i] + positionGrid[1][i] + positionGrid[2][i];
+      if (sumArr == 3) {
+        return 1;
+      } else if (sumArr == -3) {
+        return -1;
+      }
+    }
+
+    //chequear diagonales
+    sumArr = positionGrid[0][0] + positionGrid[1][1] + positionGrid[2][2];
+    if (sumArr == 3) {
+      return 1;
+    } else if (sumArr == -3) {
+      return -1;
+    }
+
+    sumArr = positionGrid[2][0] + positionGrid[1][1] + positionGrid[0][2];
+    if (sumArr == 3) {
+      return 1;
+    } else if (sumArr == -3) {
+      return -1;
+    }
+    return 0;
+  };
   return (
     <View style={styles.body}>
       <View style={styles.viewTurn}>

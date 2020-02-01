@@ -278,10 +278,10 @@ expo publish
 * [X] Cambia el turno después de marcar cajita
 * [x] No permite marcar cajita ya marcada
 * [x] Permite reiniciar la partida
-* [ ] Detecta jugadas ganadoras en eje x
-* [ ] Detecta jugadas ganadoras en eje y
-* [ ] Detecta jugadas ganadoras en diagonales
-* [ ] Muestra jugador ganador cuando gana
+* [x] Detecta jugadas ganadoras en eje x
+* [x] Detecta jugadas ganadoras en eje y
+* [x] Detecta jugadas ganadoras en diagonales
+* [x] Muestra jugador ganador cuando gana
 * [ ] Muestra jugada ganadora cuando hay ganador
 * [ ] Muestra empate cuando nadie gana y no quedan cajitas que marcar
 * [ ] Permire volver a empezar cuando termina una partida (alguien ganó o empate)
